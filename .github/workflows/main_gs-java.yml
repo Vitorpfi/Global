@@ -22,15 +22,15 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v2
       with:
-        registry: https://mcr.microsoft.com/
-        username: ${{ secrets.AzureAppService_ContainerUsername_3a9765db495a4d2797bc7324bb8ee462 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_af7da130c64b4f3a8c3cd5f6b6754f9f }}
+        registry: https://index.docker.io/v1/
+        username: ${{ secrets.AzureAppService_ContainerUsername_7f3227a34f83449e824f362812fbbfdf }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_a0becf85926b4f209d7707c0bba00a03 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_3a9765db495a4d2797bc7324bb8ee462 }}/gs:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7f3227a34f83449e824f362812fbbfdf }}/gs:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'gs-java'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_152beac38697439d9bb2163521e8b938 }}
-        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_3a9765db495a4d2797bc7324bb8ee462 }}/gs:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_07c6532ea3e64d2f830cd7821a093d34 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7f3227a34f83449e824f362812fbbfdf }}/gs:${{ github.sha }}'
