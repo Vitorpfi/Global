@@ -17,7 +17,7 @@ public class Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Implementando run azure 2");
-		LOG.info("Estou testando o log azure 2");
+		System.out.println("run azure");
+		LOG.info("log azure");
 	}	
 }
