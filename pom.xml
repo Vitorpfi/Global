@@ -14,7 +14,7 @@
 	<name>gs-api</name>
 	<description>Aplicação para Objetivos e Indicadores</description>
 	<properties>
-		<java.version>8</java.version>
+		<java.version>11</java.version>
 		<ojdbc8.version>23.2.0.0</ojdbc8.version>
 	</properties>
 	<dependencies>
